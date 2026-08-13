@@ -96,15 +96,15 @@ app.patch("/students/:id", (request, response) => {
 app.delete("/students/:id", (request, response) => {
     const idStudent = parseInt(request.params.id);
 
-    const i = students.findIndex(student => student.id === idStudent);
+    const index = students.findIndex(student => student.id === idStudent);
 
-    if (i === -1) {
+    if (index === -1) {
         return response.status(404).json({
             message: "Student not found"
         });
     }
 
-    const deletedStudent = students.splice(i, 1);
+    const deletedStudent = students.splice(index, 1);
 
     response.status(200).json({
         message: "Student deleted",
@@ -114,6 +114,5 @@ app.delete("/students/:id", (request, response) => {
 
 
 app.listen(3000, () => {
-    console.log("Serveur démarré !");
     console.log("http://localhost:3000/students");
 });
