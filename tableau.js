@@ -1,1 +1,0 @@
-const etudiants = ["Léa", "Sami"];
