@@ -7,7 +7,7 @@ import {
     updateStudentById,
     deleteStudentById
 } from "./src/controller/studentController";
-import { security } from "./src/services/security";
+import { security } from "./src/middlewares/security";
 
 const app = express();
 
