@@ -10,4 +10,4 @@ export const security = (request: Request, response: Response, next: NextFunctio
     }
 
     next();
-};
+};  
