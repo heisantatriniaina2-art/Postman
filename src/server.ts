@@ -6,11 +6,10 @@ import {
     updateStudent,
     updateStudentById,
     deleteStudentById
-} from "./src/controller/studentController";
-import { security } from "./src/middlewares/security";
+} from "./controller/studentController";
+import { security } from "./middlewares/security";
 
 const app = express();
-
 app.use(express.json());
 
 app.get("/students", getAllStudents);

@@ -7,3 +7,5 @@ const sql = postgres({
     port: 5432,
 });
 export default sql;
+
+

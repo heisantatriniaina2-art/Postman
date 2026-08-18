@@ -1,4 +1,4 @@
-import sql from '../repository/database';
+import sql from './database';
 
 const findAllStudents = async () => {
     return await sql`SELECT * FROM student`;
