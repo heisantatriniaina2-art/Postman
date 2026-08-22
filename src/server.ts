@@ -1,4 +1,9 @@
 import express from "express";
+import dotenv from 'dotenv';
+dotenv.config();
+import corsSecurity from "./conf/cors";
+import { security } from "./security/middleware";
+import { login } from "./controllers/authController";
 import {
     getAllStudents,
     getStudentById,
@@ -6,11 +11,15 @@ import {
     updateStudent,
     updateStudentById,
     deleteStudentById
-} from "./controller/studentController";
-import { security } from "./middlewares/security";
+} from "./controllers/studentController";
 
 const app = express();
+
 app.use(express.json());
+
+
+app.use(corsSecurity);
+app.post("/login", login);
 
 app.get("/students", getAllStudents);
 app.get("/students/:id", getStudentById);
