@@ -1,4 +1,4 @@
-import * as studentRepository from '../repository/studentRepository';
+import * as studentRepository from '../repositories/studentRepository';
 
 const getAllStudents = async () => {
     return await studentRepository.findAllStudents();
@@ -9,9 +9,9 @@ const getStudentById = async (id: number) => {
 };
 
 
-const createStudent = async (student) => {
+const createStudent = async (student: any) => {
     if (student.age < 0) {
-        throw new Error("Error")
+        throw new Error("Student age cannot be negative")
     }
     return await studentRepository.createStudent(student);
 };

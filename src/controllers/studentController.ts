@@ -22,16 +22,15 @@ const getStudentById = async (request: Request, response: Response) => {
         const id = Number(request.params.id);
         const student = await studentService.getStudentById(id);
         response.status(200).json({
-            message: "OK"
+            message: "OK",
+            data: student
         });
     } catch (error) {
         response.status(500).json({ message: "Server error" });
     }
 };
 
-
-
-const createStudent = async (request, response) => {
+const createStudent = async (request: Request, response: Response) => {
     try {
         const newStudentData = request.body;
         const savedStudent = await studentService.createStudent(newStudentData);
@@ -40,11 +39,11 @@ const createStudent = async (request, response) => {
             data: savedStudent
         });
     } catch (error) {
+        console.error("POST error :", error);
         response.status(400).json({
             message: "Error"
         });
     }
-
 };
 
 const updateStudent = async (request: Request, response: Response) => {
